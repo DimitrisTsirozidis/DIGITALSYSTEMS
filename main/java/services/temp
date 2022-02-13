@@ -1,0 +1,57 @@
+Exoume ta parakato ekkremei.
+1. Unitest
+2. GitHub (or Git)
+3. Docker
+4. ??? Eida sta video tis 01.24.22 oti aftos paei kai ta kanei me SQL vazeis dedomenon tin apothikefsi
+   Ego ta exo kanei me .dis arxeia ek tou diMITRIS TSIROZIDIs (binary einai oti thelo vazo) 
+   Mipos exeis provlima
+    
+ 
+
+
+
+		
+		try {
+			//apiS.getAPIEverithing(q,searchIn,title,sources,domains,excludeDomains,from,to,language,sortBy);
+
+			//	call       https://newsapi.org/v2/everything?q=apple&from=2022-02-04&to=2022-02-04&sortBy=popularity&apiKey=a8c89614f5294f1f8a3ebffea40fc875
+			// result      https://newsapi.org/v2/everything?q=apple&from=2022-02-04&to=2022-02-04&sortBy=popularity&apiKey=a8c89614f5294f1f8a3ebffea40fc875			
+//			q="apple";searchIn=null;title=null;from="2022-02-04";to="2022-02-04";language=null;sortBy="popularity";
+//			apiS.getAPIEverithing(q,searchIn,title,sources,domains,excludeDomains,from,to,language,sortBy);
+//
+//
+//			call   https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=a8c89614f5294f1f8a3ebffea40fc875
+//			result https://newsapi.org/v2/everything?domains=techcrunch.com%2Cthenextweb.com&apiKey=a8c89614f5294f1f8a3ebffea40fc875  %2C = ','
+//			q=null;searchIn=null;title=null;from=null;to=null;language=null;sortBy=null;
+//			domains=new ArrayList<String>();
+//			domains.add("techcrunch.com");
+//			domains.add("thenextweb.com");
+//			apiS.getAPIEverithing(q,searchIn,title,sources,domains,excludeDomains,from,to,language,sortBy);
+//			
+			q="apple";searchIn=null;title=null;from="2022-02-04";to="2022-02-04";language=null;sortBy="popularity";
+			NewsResult  result = apiS.getAPIEverithing(q,searchIn,title,sources,domains,excludeDomains,from,to,language,sortBy);
+//			result https://newsapi.org/v2/everything?q=apple&domais=%2Ctechcrunch.com%2Cthenextweb.com&from=2022-02-04&to=2022-02-04&sortBy=popularity&apiKey=a8c89614f5294f1f8a3ebffea40fc875
+            Utils.printResults(result);  // Print results
+
+//			apiS.getAPIEverithing(q,searchIn,title,sources,domains,excludeDomains,from,to,language,sortBy);
+//			apiS.getAPIEverithing(q,searchIn,title,sources,domains,excludeDomains,from,to,language,sortBy);
+//			apiS.getAPIEverithing(q,searchIn,title,sources,domains,excludeDomains,from,to,language,sortBy);
+			
+			
+			
+//			
+//			apiS.getAPIData("top-headlines",null,null,null,null,null ,"country", "us", "category", "business",null,null);
+//			apiS.getAPIData("top-headlines",null,null,null,null,null ,"country", "us", "category", "business",null,null);
+//			apiS.getAPIData("top-headlines",null,"","2022-02-04","to","2022-02-05" ,"country", "us", "category", "business","SortBy","popularity");
+
+//  		https://newsapi.org/v2/everything?q=apple&from=2022-02-04&to=2022-02-04&sortBy=popularity&apiKey=a8c89614f5294f1f8a3ebffea40fc875
+// 			SOS Error occurred on API call: The category param is not currently supported on the /everything endpoint.
+// 			SOS Error occurred on API call: The country param is not currently supported on the /everything endpoint.
+			
+
+			
+		
+		} catch (NewsAPIException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
