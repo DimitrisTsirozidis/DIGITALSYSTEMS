@@ -12,9 +12,7 @@ import java.util.ArrayList;
 import model.newsdb.Article;
 import model.newsdb.NewsResult;
 
-
 public class Utils {
-
 
 	public static final int DEFAULT_PAGE_SIZE = 100;
 	public static final int DEFAULT_PAGE = 1;
@@ -53,6 +51,7 @@ public class Utils {
 
 		System.out.println(
 				"\n************************************************************************************************************************\n");
+		
 		save5LastResults(result);
 	}
 
@@ -140,7 +139,36 @@ public class Utils {
 			}
 		}
 	}
-	
+
+	public static void display5LastQueries() {
+		int i = 1;
+		if(last5Queries.size()>0) {
+		System.out.println("---------------------------------------------------------------");
+		for (String q : last5Queries) {
+			System.out.println("\t" + i + " -- " + q);
+			i++;
+		}
+		System.out.println("---------------------------------------------------------------");
+		System.out.println("Please select a Query with order number ");
+		}
+		else {
+			System.out.println("Nothing save yet!!!");
+			return;
+		}
+		int ans = 6;
+		do {
+			String sans = Menu.sc.nextLine();
+			try {
+				ans = Integer.parseInt(sans);
+			} catch (NumberFormatException e) {
+				System.out.println("Give only 0 to 5 NUMBERS !!!");
+				ans = 6;
+			}
+		} while (ans < 0 || ans > 5);
+        if(ans>=0 && ans<=5 && last5Results.size()>0)
+		printResults(last5Results.get(ans));
+	}
+
 //	public static ArrayList<String> readParametersForEverethingQuery(){
 //		ArrayList<Object> parameters  = new ArrayList<Object>();
 ////		for(int i =0 ; i<10; i++) parameters.add(null); // 4,5, 6 eiNA aRRAY lIST cancel 

@@ -32,6 +32,9 @@ public class Main {
 					NewsResult result = null;
 					try {
 						result = apiS.getAPITopHeadLines(q,searchIn,title,country,category,sources,domains,excludeDomains,from,to,language,sortBy);
+						Utils.save5LastQueries("Top Hed Lines for: "+q+", searchIn: "+searchIn+", with Title "+title+", country "+country+", category "+category+
+								", from date "+from+", to date "+to+", language "+language+", sortBy "+sortBy);
+
 					} catch (NewsAPIException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -57,11 +60,16 @@ public class Main {
 					try {
 						
 						result = apiS.getAPITopHeadLines(q,searchIn,title,country,category,sources,domains,excludeDomains,from,to,language,sortBy);
+						Utils.save5LastQueries("Top Hed Lines for: "+q+", searchIn: "+searchIn+", with Title "+title+", from date "+from+", to date "+to+", language "+language+", sortBy "+sortBy);
+
 					} catch (NewsAPIException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-		            Utils.printResults(result);  // Print results					
+					// Utils.save5LastQueries("Top Hed Lines for: "+q+"&"+searchIn+"&"+title+"&"+country+"&"+category+"&"+sources+"&"+domains+"&"+excludeDomains+"&"+from+"&"+to+"&"+language+"&"+sortBy);
+					Utils.save5LastQueries("Top Hed Lines for: "+q+", searchIn: "+searchIn+", with Title "+title+", from date "+from+", to date "+to+", language "+language+", sortBy "+sortBy);
+
+					Utils.printResults(result);  // Print results					
 				}
 				else if(choice ==0 ) {     // ====================================== Sub Menu Top news headlines Exit
 					break;
@@ -86,29 +94,11 @@ public class Main {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
+					Utils.save5LastQueries("Everthing News for: "+q+", searchIn: "+searchIn+", with Title "+title+", from date "+from+", to date "+to+", language "+language+", sortBy "+sortBy);
 		            Utils.printResults(result);  // Print results
 				}
-				else if(subChoice ==2 ) {  // ====================================== Sub Menu news with criteria
-					domains=new ArrayList<String>();
-					domains.add("techcrunch.com");
-					domains.add("thenextweb.com");
-					q = Menu.getQ();
-					if(q==null) continue;
-					searchIn=SearchIn.getParameter();
-					title=null;
-					from=Menu.getDate("Start");
-					to=Menu.getDate("End");
-					language=Language.getParameter();
-					sortBy=SortBy.getParameter();
-					
-					NewsResult result = null;
-					try {
-						result = apiS.getAPIEverithing(q,searchIn,title,sources,domains,excludeDomains,from,to,language,sortBy);
-					} catch (NewsAPIException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-		            Utils.printResults(result);  // Print results					
+				else if(subChoice ==2 ) {  // ====================================== Sub Menu news from History
+					Utils.display5LastQueries();			
 				}
 				else if(choice ==0 ) {     // ====================================== Sub Menu news 
 					break;
@@ -116,9 +106,11 @@ public class Main {
 				
 			}
 			else if(choice ==3 ) { // --------------------------------------------------------------- Main Menu  Save 5 last Queries
+				Utils.writeToDisk();
 				
 			}
 			else if(choice ==0 ) { // --------------------------------------------------------------- Main Menu Exit
+				Utils.writeToDisk();
 				System.out.println("Thanks for Use\nBye Bye!!!\n");
 				break;
 			}

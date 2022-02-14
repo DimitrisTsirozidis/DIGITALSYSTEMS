@@ -217,7 +217,7 @@ public class NewsAPIService {
 			HttpEntity entity = httpResponse.getEntity();
 			if (entity != null) {
 		           returnedString = EntityUtils.toString(entity);
-		           Utils.save5LastQueries(returnedString);   // save 5 last Queries
+		          // Utils.save5LastQueries(returnedString);   // save 5 last Queries
 		        }			
 			ObjectMapper mapper = new ObjectMapper();
 			if (httpResponse.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
