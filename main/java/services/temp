@@ -1,10 +1,6 @@
 Exoume ta parakato ekkremei.
-1. Unitest
-2. GitHub (or Git)
+1. Unitest meni na trexei
 3. Docker
-4. ??? Eida sta video tis 01.24.22 oti aftos paei kai ta kanei me SQL vazeis dedomenon tin apothikefsi
-   Ego ta exo kanei me .dis arxeia ek tou diMITRIS TSIROZIDIs (binary einai oti thelo vazo) 
-   Mipos exeis provlima
     
  
 
@@ -55,3 +51,29 @@ Exoume ta parakato ekkremei.
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
+		
+		
+	@Before
+	public void setUp() throws Exception {
+		
+	}
+	
+	public void testApiResult() throws  NewsAPIException{
+		
+		NewsAPIService apiS  = new NewsAPIService("https://newsapi.org","a8c89614f5294f1f8a3ebffea40fc875");
+		 String q=null,searchIn=null,title=null,from=null,to=null,language=null,sortBy=null,category = null,country=null;
+		 ArrayList<String> sources=null,domains=null,excludeDomains=null;
+		 NewsResult result = apiS.getAPITopHeadLines(q,searchIn,title,country,category,sources,domains,excludeDomains,from,to,language,sortBy);
+		 q = "apple";
+		 from="2022-02-04";
+		 to="2022-02-04";
+		 sortBy="popularity";
+		 Assert.assertFalse(result==null);
+		  Utils.printResults(result);
+		 
+		 
+		 
+	}
+	

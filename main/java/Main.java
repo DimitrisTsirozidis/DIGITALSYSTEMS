@@ -16,7 +16,7 @@ public class Main {
 	 
 
 	public static void main(String[]  args) {
-		Utils.restore5LastFromDisk(); // Restore last 5 queries and results from disk 
+		 Utils.restore5LastFromDisk(); // Restore last 5 queries and results from disk 
 		 NewsAPIService apiS  = new NewsAPIService("https://newsapi.org","a8c89614f5294f1f8a3ebffea40fc875");
 		 String q=null,searchIn=null,title=null,from=null,to=null,language=null,sortBy=null,category = null,country=null;
 		 ArrayList<String> sources=null,domains=null,excludeDomains=null;
